@@ -42,7 +42,7 @@ export const Footer = (): JSX.Element => {
         </h3>
 
         <p className="font-['Inter',Helvetica] text-white text-sm md:text-base text-center mb-6 md:mb-8">
-          <span>0248680999 | </span>
+          <span>0571820957/0542893863 | </span>
           <a
             href="mailto:info@jowu.app"
             rel="noopener noreferrer"
@@ -51,7 +51,7 @@ export const Footer = (): JSX.Element => {
           >
             info@jowu.app
           </a>
-          <span> | Tema-Ghana</span>
+          <span> | Accra-Ghana</span>
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">

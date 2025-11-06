@@ -52,7 +52,7 @@ export const Navigation = (): JSX.Element => {
               isActive('/find-meal') ? 'text-[#fdaa00]' : 'text-gray-700'
             }`}
           >
-            Find Meal
+            Join Meal
           </Link>
           <Link 
             to="/share-meal"
