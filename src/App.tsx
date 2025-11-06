@@ -24,6 +24,8 @@ import { AdminDashboard } from './screens/admin/AdminDashboard';
 import { AdminUsers } from './screens/admin/AdminUsers';
 import { AdminSessions } from './screens/admin/AdminSessions';
 import { AdminReports } from './screens/admin/AdminReports';
+import { TermsAndConditions } from './screens/TermsandConditions';
+import { PrivacyPolicy } from './screens/PrivacyPolicy/privacyPolicy';
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
               <Route path="/messages" element={<Messages />} />
               <Route path="/create-meal" element={<CreateMeal />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/terms" element={<TermsAndConditions />} />
+              <Route path="/privacy" element={<PrivacyPolicy />} />
               
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />

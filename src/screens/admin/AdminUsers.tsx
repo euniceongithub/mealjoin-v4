@@ -10,6 +10,8 @@ interface User {
   id: string;
   name: string;
   email: string;
+  phoneNumber?: string;
+  role?: string;
   joinDate: string;
   status: 'active' | 'suspended';
 }
@@ -40,6 +42,8 @@ export const AdminUsers = (): JSX.Element => {
             id: '1',
             name: 'Kevin Asante',
             email: 'kevin@example.com',
+            phoneNumber: '+233501234567',
+            role: 'MealJoiner',
             joinDate: '2024-12-01',
             status: 'active'
           },
@@ -47,6 +51,8 @@ export const AdminUsers = (): JSX.Element => {
             id: '2',
             name: 'Ama Serwaa',
             email: 'ama@example.com',
+            phoneNumber: '+233501234568',
+            role: 'Chef',
             joinDate: '2024-11-15',
             status: 'active'
           },
@@ -54,6 +60,8 @@ export const AdminUsers = (): JSX.Element => {
             id: '3',
             name: 'James Wilson',
             email: 'james@example.com',
+            phoneNumber: '+233501234569',
+            role: 'MealJoiner',
             joinDate: '2024-10-20',
             status: 'suspended'
           },
@@ -61,6 +69,8 @@ export const AdminUsers = (): JSX.Element => {
             id: '4',
             name: 'Fatima Abdul',
             email: 'fatima@example.com',
+            phoneNumber: '+233501234570',
+            role: 'Chef',
             joinDate: '2024-12-10',
             status: 'active'
           },
@@ -68,6 +78,8 @@ export const AdminUsers = (): JSX.Element => {
             id: '5',
             name: 'Chen Wei',
             email: 'chen@example.com',
+            phoneNumber: '+233501234571',
+            role: 'MealJoiner, Chef', 
             joinDate: '2024-09-05',
             status: 'active'
           }
@@ -178,6 +190,7 @@ export const AdminUsers = (): JSX.Element => {
               >
                 <option value="all">All Users</option>
                 <option value="active">Active Only</option>
+                <option value="mealjoiners">MealJoiners Only</option>
                 <option value="suspended">Suspended Only</option>
               </select>
             </div>
@@ -209,7 +222,8 @@ export const AdminUsers = (): JSX.Element => {
                   <thead className="bg-gray-50 border-b border-gray-200 hidden md:table-header-group">
                     <tr>
                       <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Name</th>
-                      <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Email</th>
+                      <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Contact</th>
+                      <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Role</th>
                       <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Join Date</th>
                       <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Status</th>
                       <th className="px-4 md:px-6 py-3 md:py-4 text-left text-xs md:text-sm font-medium text-gray-900">Actions</th>
@@ -225,7 +239,19 @@ export const AdminUsers = (): JSX.Element => {
                         <td className="px-4 md:px-6 py-2 md:py-4 md:table-cell flex justify-between md:block">
                           <span className="font-medium text-gray-500 md:hidden">Email:</span>
                           <div className="text-gray-600 text-sm md:text-base">{user.email}</div>
+                          <span className="font-medium text-gray-500 md:hidden">Phone:</span>
+                          <div className="text-gray-600 text-sm md:text-base">{user.phoneNumber}</div>
                         </td>
+                          <td className="px-4 md:px-6 py-2 md:py-4 md:table-cell flex justify-between md:block">
+                            <span className="font-medium text-gray-500 md:hidden">Role:</span>
+                            <div
+                              className={`font-medium text-sm md:text-base ${
+                                user.role && user.role.toLowerCase().includes('mealjoiner') ? 'text-black' : 'text-[#f0803e]'
+                              }`}
+                            >
+                              {user.role}
+                            </div>
+                          </td>
                         <td className="px-4 md:px-6 py-2 md:py-4 md:table-cell flex justify-between md:block">
                           <span className="font-medium text-gray-500 md:hidden">Join Date:</span>
                           <div className="flex items-center text-gray-600 text-sm md:text-base">

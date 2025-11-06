@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from '../../components/shared/Navigation';
 import { Footer } from '../../components/shared/Footer';
 import { Card, CardContent } from '../../components/ui/card';
+import { Link } from 'react-router-dom';
 import { Users, Heart, Shield, Globe, Award, Utensils } from 'lucide-react';
 
 export const About = (): JSX.Element => {

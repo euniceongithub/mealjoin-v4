@@ -223,7 +223,7 @@ export const FindMeal = (): JSX.Element => {
                     </span>
                     <Link to={`/meal/${meal.id}`}>
                       <Button className="bg-[#f0803e] hover:bg-[#d96d35] text-white rounded-full px-4 md:px-6 text-sm md:text-base">
-                        Book Now
+                        Join Now
                       </Button>
                     </Link>
                   </div>

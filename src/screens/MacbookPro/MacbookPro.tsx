@@ -12,7 +12,7 @@ export const MacbookPro = (): JSX.Element => {
   const featuredMeals = [
     {
       id: 1,
-      hostName: "Kevin Asante",
+      hostName: "Kevin",
       mealDescription: "Traditional jollof rice with grilled chicken, coleslaw, and plantain",
       price: "GHC 70.00",
       location: "Millennium City Estate",
@@ -20,7 +20,7 @@ export const MacbookPro = (): JSX.Element => {
     },
     {
       id: 2,
-      hostName: "Ama Serwaa",
+      hostName: "Ama",
       mealDescription: "Homemade banku with fresh tilapia and spicy pepper sauce",
       price: "GHC 85.00",
       location: "East Legon",
@@ -28,7 +28,7 @@ export const MacbookPro = (): JSX.Element => {
     },
     {
       id: 3,
-      hostName: "James Wilson",
+      hostName: "James",
       mealDescription: "Italian pasta with marinara sauce and garlic bread",
       price: "GHC 95.00",
       location: "Airport Residential",
@@ -36,7 +36,7 @@ export const MacbookPro = (): JSX.Element => {
     },
     {
       id: 4,
-      hostName: "Fatima Abdul",
+      hostName: "Fatima",
       mealDescription: "Vegetarian curry with quinoa and fresh salad",
       price: "GHC 60.00",
       location: "Cantonments",
@@ -44,7 +44,7 @@ export const MacbookPro = (): JSX.Element => {
     },
     {
       id: 5,
-      hostName: "Chen Wei",
+      hostName: "Chen",
       mealDescription: "Asian fusion stir-fried noodles with spring rolls",
       price: "GHC 80.00",
       location: "Osu",
@@ -57,12 +57,12 @@ export const MacbookPro = (): JSX.Element => {
     {
       number: "1",
       title: "Find a Meal",
-      description: "Use the MealJoin site to locate your cravings.",
+      description: "Find cravings on MealJoin.",
     },
     {
       number: "2",
-      title: "Book a seat",
-      description: "Pay for your meal and obtain your receipt.",
+      title: "Reserve a plate",
+      description: "Join and pay for your meal.",
     },
     {
       number: "3",
@@ -235,7 +235,7 @@ export const MacbookPro = (): JSX.Element => {
                 We're redefining the way you satisfy the meals you crave
               </h2>
               <p className="font-['Luckiest_Guy',Helvetica] text-black text-base md:text-lg leading-relaxed max-w-2xl text-center lg:text-left">
-                Jowu is a dine-in platform that lets you enjoy homemade meals in
+                MealJoin is a dine-in platform that lets you enjoy homemade meals in
                 your neighbor's home, offering both delicious food and a sense
                 of community and connection.
               </p>
@@ -314,7 +314,7 @@ export const MacbookPro = (): JSX.Element => {
               {features.map((feature, index) => (
                 <div key={index} className="flex flex-col items-center text-center">
                   <img
-                    className="w-16 h-16 md:w-20 md:h-20 object-cover mb-3 md:mb-4"
+                    className="w-16 h-16 md:w-20 md:h-20 object-fit mb-3 md:mb-4"
                     alt={feature.title}
                     src={feature.icon}
                   />
@@ -337,8 +337,7 @@ export const MacbookPro = (): JSX.Element => {
             <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12">
               <div className="flex-1">
                 <blockquote className="font-['Inter',Helvetica] text-black text-base md:text-lg lg:text-xl text-center leading-relaxed">
-                  "MealJoin helped me find affordable homemade food right near campus. The meal was
-                  great, and it felt like eating at a friend's place. Definitely using it again!"
+                  "It turns out I run a free food shelter for my friends. They are bonded to my food like strong WI-FI. It's cool to keep your friends smiling always, else Legon will make them go crazy."
                 </blockquote>
                 <div className="font-['Luckiest_Guy',Helvetica] text-[#4f000b] text-base md:text-lg text-center mt-6 md:mt-8">
                   -Ama Serwaa<br />
@@ -361,12 +360,16 @@ export const MacbookPro = (): JSX.Element => {
         {/* Newsletter Section */}
         <section className="py-8 md:py-16 bg-[#d9d9d9]">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <h2 className="font-['Inter',Helvetica] text-black text-2xl md:text-3xl text-center mb-6 md:mb-8">
-              Newsletter
-            </h2>
+            <strong><h2 className="font-['Inter',Helvetica] text-black text-2xl md:text-3xl text-center mb-6 md:mb-8">
+              Join the MealJoin Waitlist
+            </h2></strong>
 
-            <p className="font-['Inter',Helvetica] text-black text-base md:text-lg text-center mb-8 md:mb-12">
+            {/* <p className="font-['Inter',Helvetica] text-black text-base md:text-lg text-center mb-8 md:mb-12">
               Stay in the loop with quick bites, budget meals, and campus food hacks.
+            </p> */}
+
+              <p className="font-['Inter',Helvetica] text-black text-base md:text-lg text-center mb-8 md:mb-12">
+             Early access isn’t for everyone. It’s for you.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-2xl mx-auto">

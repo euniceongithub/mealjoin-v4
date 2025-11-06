@@ -38,12 +38,22 @@ export const MealDetails = (): JSX.Element => {
     dietaryInfo: ['Gluten-free option available', 'Can accommodate mild spice preference'],
     houseRules: ['Please arrive on time', 'Let me know about allergies in advance', 'Comfortable casual attire'],
     category: 'African',
-    cuisineType: 'Ghanaian'
+    cuisineType: 'Ghanaian',
+    disclaimer: 'Keep in mind: The real thing might not perfectly match the photo, but it will taste amazing.',
   };
 
   const handleBooking = () => {
     // Navigate to booking confirmation
     window.location.href = `/booking/${meal.id}?guests=${selectedGuests}`;
+  };
+
+  const handleShare = () => {
+    const shareData = {
+      title: meal.mealTitle,
+      text: `Check out this meal: ${meal.mealTitle} hosted by ${meal.hostName}.`,
+      url: window.location.href
+    };
+    navigator.share(shareData);
   };
 
   return (
@@ -123,6 +133,8 @@ export const MealDetails = (): JSX.Element => {
                 <p className="text-gray-700 leading-relaxed mb-6">
                   {meal.description}
                 </p>
+                <p className="text-sm text-gray-600 italic">{meal.disclaimer}</p>
+
               </div>
 
               {/* Host Info */}
@@ -219,22 +231,7 @@ export const MealDetails = (): JSX.Element => {
                   </div>
 
                   <div className="space-y-4 mb-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Number of Guests
-                      </label>
-                      <select
-                        value={selectedGuests}
-                        onChange={(e) => setSelectedGuests(parseInt(e.target.value))}
-                        className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f0803e] focus:border-transparent"
-                      >
-                        {Array.from({ length: meal.spotsLeft }, (_, i) => i + 1).map(num => (
-                          <option key={num} value={num}>
-                            {num} {num === 1 ? 'Guest' : 'Guests'}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                  
 
                     <div className="bg-gray-50 p-4 rounded-lg">
                       <div className="flex justify-between items-center mb-2">
@@ -258,7 +255,13 @@ export const MealDetails = (): JSX.Element => {
                     onClick={handleBooking}
                     className="w-full h-12 bg-[#f0803e] hover:bg-[#d96d35] text-white rounded-lg font-medium mb-4"
                   >
-                    Book Now
+                    Join Now
+                  </Button>
+                   <Button 
+                    onClick={handleShare}
+                    className="w-full h-12 bg-[#ffffff] hover:bg-[#d96d35] hover:text-white text-[#f0803e] rounded-lg font-medium mb-4 border border-[#f0803e]"
+                  >
+                    Share
                   </Button>
 
                   <div className="text-center text-sm text-gray-600">

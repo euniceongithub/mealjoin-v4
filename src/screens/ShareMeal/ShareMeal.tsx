@@ -131,14 +131,13 @@ export const ShareMeal = (): JSX.Element => {
                     
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Description *
+                        Description (optional) 
                       </label>
                       <textarea
                         className="w-full h-24 p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f0803e] focus:border-transparent resize-none"
                         placeholder="Describe your meal, cooking style, and what makes it special..."
                         value={formData.description}
                         onChange={(e) => handleInputChange('description', e.target.value)}
-                        required
                       />
                     </div>
 
@@ -157,48 +156,33 @@ export const ShareMeal = (): JSX.Element => {
                   </div>
                 </div>
 
-                {/* Category & Cuisine Section */}
+                {/* Beverage Options (checkboxes for water / drink) */}
                 <div>
                   <h3 className="font-['Luckiest_Guy',Helvetica] text-xl text-gray-800 mb-6">
-                    Category & Cuisine
+                  Beverage Options
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Meal Category *
-                      </label>
-                      <select
-                        className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f0803e] focus:border-transparent"
-                        value={formData.category}
-                        onChange={(e) => handleInputChange('category', e.target.value)}
-                        required
-                      >
-                        <option value="">Select category</option>
-                        {categories.map((category) => (
-                          <option key={category} value={category}>
-                            {category}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Cuisine Type *
-                      </label>
-                      <select
-                        className="w-full h-12 px-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#f0803e] focus:border-transparent"
-                        value={formData.cuisineType}
-                        onChange={(e) => handleInputChange('cuisineType', e.target.value)}
-                        required
-                      >
-                        <option value="">Select cuisine type</option>
-                        {cuisineTypes.map((cuisine) => (
-                          <option key={cuisine} value={cuisine}>
-                            {cuisine}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                  <label className="flex items-center gap-3">
+                    <input
+                    type="checkbox"
+                    className="w-5 h-5"
+                    checked={formData.category === 'true'}
+                    onChange={(e) => handleInputChange('category', e.target.checked ? 'true' : '')}
+                    aria-label="Include water with the meal"
+                    />
+                    <span className="text-sm text-gray-700">Water</span>
+                  </label>
+
+                  <label className="flex items-center gap-3">
+                    <input
+                    type="checkbox"
+                    className="w-5 h-5"
+                    checked={formData.cuisineType === 'true'}
+                    onChange={(e) => handleInputChange('cuisineType', e.target.checked ? 'true' : '')}
+                    aria-label="Include a drink with the meal"
+                    />
+                    <span className="text-sm text-gray-700">Drink</span>
+                  </label>
                   </div>
                 </div>
 
@@ -280,7 +264,7 @@ export const ShareMeal = (): JSX.Element => {
                 </div>
 
                 {/* Hall/Hostel Section */}
-                <div>
+                {/* <div>
                   <h3 className="font-['Luckiest_Guy',Helvetica] text-xl text-gray-800 mb-6">
                     Hall/Hostel Information
                   </h3>
@@ -302,7 +286,64 @@ export const ShareMeal = (): JSX.Element => {
                       Enter your hall or hostel name (room number not required)
                     </p>
                   </div>
-                </div>
+                </div> */}
+
+    <div>
+      
+
+        <div className="relative">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 mt-3">
+
+          <button
+            type="button"
+            onClick={() => {
+              if (!navigator.geolocation) {
+                alert('Geolocation is not supported by your browser.');
+                return;
+              }
+              navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                  const lat = pos.coords.latitude;
+                  const lng = pos.coords.longitude;
+                  // store as "lat,lng" so we can render a preview map
+                  handleInputChange('location', `${lat},${lng}`);
+                },
+                () => {
+                  alert('Unable to retrieve your location. Please ensure location services are enabled.');
+                },
+                { enableHighAccuracy: true, timeout: 10000 }
+              );
+            }}
+            className="inline-flex items-center px-4 pr-2 py-2 bg-[#f0803e] hover:bg-[#d96d35] text-white rounded-lg shadow-sm text-sm"
+          >
+          <MapPin className=" w-5 h-5 text-gray-400" />
+
+            Use my current location
+          </button>
+
+         
+        </div>
+
+        {/* Static map preview when a lat,lng value is present in formData.location.
+            Replace YOUR_GOOGLE_MAPS_API_KEY with your Maps Static API key. */}
+        {formData.location && /^[\d\-.]+,[\d\-.]+$/.test(formData.location) && (
+          <div className="mt-4 rounded-lg overflow-hidden border">
+            <img
+              src={`https://maps.googleapis.com/maps/api/staticmap?center=${encodeURIComponent(
+                formData.location
+              )}&zoom=16&size=600x300&markers=color:red%7C${encodeURIComponent(
+                formData.location
+              )}&scale=2&key=YOUR_GOOGLE_MAPS_API_KEY`}
+              alt="Selected location preview"
+              className="w-full h-48 object-cover"
+            />
+            <p className="text-sm text-gray-500 p-2">
+              Preview of selected location. The value saved will be latitude,longitude.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
 
                 {/* Photo Upload Section */}
                 <div>

@@ -5,6 +5,7 @@ import { Users, ChefHat, UserCheck, TrendingUp } from 'lucide-react';
 interface DashboardStats {
   totalUsers: number;
   totalSessions: number;
+  totalMealsServed: number;
   activeUsers: number;
   totalRevenue: number;
 }
@@ -24,6 +25,7 @@ export const AdminDashboard = (): JSX.Element => {
         const mockStats: DashboardStats = {
           totalUsers: 1247,
           totalSessions: 89,
+          totalMealsServed: 4578,
           activeUsers: 342,
           totalRevenue: 15420.50
         };
@@ -50,6 +52,13 @@ export const AdminDashboard = (): JSX.Element => {
     {
       title: 'Total Meal Sessions',
       value: stats?.totalSessions || 0,
+      icon: ChefHat,
+      color: 'text-[#f0803e]',
+      bgColor: 'bg-orange-100'
+    },
+      {
+      title: 'Total Meals Served',
+      value: stats?.totalMealsServed || 0,
       icon: ChefHat,
       color: 'text-[#f0803e]',
       bgColor: 'bg-orange-100'

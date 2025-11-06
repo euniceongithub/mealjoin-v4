@@ -29,12 +29,15 @@ export const Footer = (): JSX.Element => {
           >
             About
           </Link>
-          <a className="font-['Inter',Helvetica] text-white text-sm md:text-base hover:text-[#fdaa00] cursor-pointer transition-colors">
+          <Link 
+            to="/terms"
+            className="font-['Inter',Helvetica] text-white text-sm md:text-base hover:text-[#fdaa00] cursor-pointer transition-colors"
+          >
             Terms of Service
-          </a>
-          <a className="font-['Inter',Helvetica] text-white text-sm md:text-base hover:text-[#fdaa00] cursor-pointer transition-colors">
+          </Link>
+          <Link to="/privacy" className="font-['Inter',Helvetica] text-white text-sm md:text-base hover:text-[#fdaa00] cursor-pointer transition-colors">
             Privacy Policy
-          </a>
+          </Link>
         </div>
 
         <h3 className="font-['Inter',Helvetica] text-white text-lg md:text-xl text-center mb-4 md:mb-6">
@@ -44,12 +47,12 @@ export const Footer = (): JSX.Element => {
         <p className="font-['Inter',Helvetica] text-white text-sm md:text-base text-center mb-6 md:mb-8">
           <span>0571820957/0542893863 | </span>
           <a
-            href="mailto:info@jowu.app"
+            href="mailto:mealjoin@gmail.com"
             rel="noopener noreferrer"
             target="_blank"
             className="underline hover:text-[#fdaa00] transition-colors"
           >
-            info@jowu.app
+            mealjoin@gmail.com
           </a>
           <span> | Accra-Ghana</span>
         </p>

@@ -186,19 +186,7 @@ export const BookingConfirmation = (): JSX.Element => {
                           required
                         />
                       </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address *
-                        </label>
-                        <Input
-                          className="h-12"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange('email', e.target.value)}
-                          required
-                        />
-                      </div>
-                      <div>
+                                           <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Phone Number *
                         </label>
@@ -226,7 +214,7 @@ export const BookingConfirmation = (): JSX.Element => {
                 </Card>
 
                 {/* Payment Information */}
-                <Card className="rounded-2xl shadow-lg">
+                {/* <Card className="rounded-2xl shadow-lg">
                   <CardContent className="p-6">
                     <h3 className="font-['Luckiest_Guy',Helvetica] text-xl text-gray-800 mb-6 flex items-center gap-2">
                       <CreditCard className="w-6 h-6 text-[#f0803e]" />
@@ -288,7 +276,7 @@ export const BookingConfirmation = (): JSX.Element => {
                       <span>Your payment information is secure and encrypted</span>
                     </div>
                   </CardContent>
-                </Card>
+                </Card> */}
 
                 <Button 
                   type="submit"

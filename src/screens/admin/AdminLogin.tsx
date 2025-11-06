@@ -86,7 +86,7 @@ export const AdminLogin = (): JSX.Element => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#f0803e] to-[#fdaa00] flex items-center justify-center px-6">
+    <div className="min-h-screen bg-white flex items-center justify-center px-6">
       <Card className="w-full max-w-md rounded-2xl shadow-lg">
         <CardContent className="p-8">
           <div className="text-center mb-8">
